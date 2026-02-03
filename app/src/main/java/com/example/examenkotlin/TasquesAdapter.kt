@@ -1,48 +1,64 @@
-package com.example.examenkotlin
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.examenkotlin.Categoria
+import com.example.examenkotlin.R
+import com.example.examenkotlin.Tasca
+import com.example.examenkotlin.TasquesRepository.tasques
 
-class TasquesAdapter(private val dataSet: List<Tasca>) :
-    RecyclerView.Adapter<TasquesAdapter.TascaViewHolder>() {
+class TasquesAdapter(private val dataSet: Array<Tasca>) :
+    RecyclerView.Adapter<TasquesAdapter.ViewHolder>() {
 
-    class TascaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var tvNom : TextView
-        lateinit var tvCategoria : TextView
-        lateinit var tvData : TextView
-        lateinit var tvEstat : TextView
-        init{
-            tvNom = itemView.findViewById(R.id.tvNom)
-            tvCategoria = itemView.findViewById(R.id.tvCategoria)
-            tvEstat = itemView.findViewById(R.id.tvEstat)
-            tvData = itemView.findViewById(R.id.tvData)
+    /**
+     * Provide a reference to the type of views that you are using
+     * (custom ViewHolder)
+     */
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        lateinit var tvNom: TextView
+        lateinit var tvCategoria: TextView
+        lateinit var tvData: TextView
+        lateinit var tvEstat: TextView
+
+        lateinit var tasques: Array<Tasca>
+
+        init {
+            // Define click listener for the ViewHolder's View
+            tvNom = view.findViewById(R.id.tvNom)
+            tvCategoria = view.findViewById(R.id.tvCategoria)
+            tvData = view.findViewById(R.id.tvData)
+            tvEstat = view.findViewById(R.id.tvEstat)
         }
-
     }
-
-    private var tasques = listOf<Tasca>()
-
     fun setTasques(novesTasques: List<Tasca>) {
+
         tasques = novesTasques
-        notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TascaViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_tasca, parent, false)
-        return TascaViewHolder(view)
+    // Create new views (invoked by the layout manager)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+        // Create a new view, which defines the UI of the list item
+        val view = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.fragment_tasques, viewGroup, false)
+
+        return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: TascaViewHolder, position: Int) {
+
+    // Replace the contents of a view (invoked by the layout manager)
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+
+        // Get element from your dataset at this position and replace the
+        // contents of the view with that element
         val item = dataSet[position]
-        holder.tvNom.text
-        holder.tvCategoria.text
-        holder.tvData.text
-        holder.tvEstat.text
+        viewHolder.tvNom.text
+        viewHolder.tvCategoria.text
+        viewHolder.tvData.text
+        viewHolder.tvEstat.text
     }
+
+    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
 
 }

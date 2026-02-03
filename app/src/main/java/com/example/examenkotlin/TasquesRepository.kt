@@ -2,7 +2,7 @@ package com.example.examenkotlin
 
 // Object amb llistat de tasques
 object TasquesRepository {
-    val tasques = listOf(
+    var tasques = listOf(
         Tasca(1, "Preparar presentació", Categoria.Feina, "25/01/2026", Estat.EnCurs),
         Tasca(2, "Revisar emails", Categoria.Feina, "25/01/2026", Estat.NoComencada),
         Tasca(3, "Sopar familiar", Categoria.Familia, "26/01/2026", Estat.NoComencada),

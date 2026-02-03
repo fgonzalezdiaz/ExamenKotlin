@@ -11,8 +11,9 @@ import androidx.fragment.app.Fragment
 class part1a : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_part1a)
+
+        // Solo cargar el fragmento si es la primera vez (no tras rotación)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainerView, TasquesFragment())

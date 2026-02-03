@@ -1,5 +1,6 @@
 package com.example.examenkotlin
 
+import TasquesAdapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
@@ -16,7 +17,7 @@ class TasquesFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var chipGroup: ChipGroup
     private lateinit var toolbar: Toolbar
-    private val adapter = TasquesAdapter(TasquesRepository.tasques)
+    private val adapter = TasquesAdapter((TasquesRepository.tasques).toTypedArray())
     lateinit var recycler: RecyclerView
 
     private var categoriaSeleccionada: Categoria? = null
@@ -40,8 +41,10 @@ class TasquesFragment : Fragment() {
         setupToolbarBehavior()
 
         // Carregar totes les tasques inicialment
-        actualitzarTasques()
+        recycler.adapter = TasquesAdapter(TasquesRepository.tasques.toTypedArray())
     }
+
+    private fun LinearLayoutManager(context: TasquesFragment) {}
 
     private fun setupRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -96,4 +99,5 @@ class TasquesFragment : Fragment() {
         }
         adapter.setTasques(tasquesFiltrades)
     }
+
 }
