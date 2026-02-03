@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ExamenKotlin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="les_meves_tasques">Les meves tasques</string>
+    <string name="les_moves_tasques">Les moves tasques</string>
+    <string name="personal">Personal</string>
+    <string name="fam_lia">Família</string>
+    <string name="feina">Feina</string>
+    <string name="totes">Totes</string>
 </resources>
