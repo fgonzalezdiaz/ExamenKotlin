@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TasquesAdapter(private val dataSet: Array<Tasca>) :
+class TasquesAdapter(private val dataSet: List<Tasca>) :
     RecyclerView.Adapter<TasquesAdapter.TascaViewHolder>() {
 
     class TascaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

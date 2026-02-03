@@ -5,15 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:background="?attr/colorPrimary"
-         android:elevation="4dp"
-         android:title="@string/les_meves_tasques"
-         android:titleTextColor="@android:color/white"
-         app:titleTextColor="@color/white"/>
+
 
 
     <LinearLayout

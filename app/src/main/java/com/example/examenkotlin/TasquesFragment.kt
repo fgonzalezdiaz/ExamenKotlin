@@ -1,6 +1,5 @@
 package com.example.examenkotlin
 
-import TasquesAdapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
@@ -17,7 +16,9 @@ class TasquesFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var chipGroup: ChipGroup
     private lateinit var toolbar: Toolbar
-    private val adapter = TasquesAdapter()
+    private val adapter = TasquesAdapter(TasquesRepository.tasques)
+    lateinit var recycler: RecyclerView
+
     private var categoriaSeleccionada: Categoria? = null
 
     override fun onCreateView(
@@ -30,7 +31,6 @@ class TasquesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         toolbar = view.findViewById(R.id.toolbar)
         recyclerView = view.findViewById(R.id.recyclerView)
         chipGroup = view.findViewById(R.id.chipGroup)
